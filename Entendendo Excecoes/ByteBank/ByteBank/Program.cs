@@ -15,15 +15,20 @@ namespace ByteBank
                 ContaCorrente conta = new ContaCorrente(98, 74640);
                 conta.Depositar(50);
                 Console.WriteLine(conta.Saldo);
-                conta.Sacar(500);
+            
+
+
+                ContaCorrente conta2 = new ContaCorrente(78, 986);
+                conta2.Transferir(-10, conta2);
             }
             catch (ArgumentException e)
             {
 
-                if (e.ParamName == "agencia")
+                /*if (e.ParamName == "agencia")
                 {
                     Console.WriteLine("blablabla");
-                }
+                }*/
+
                 Console.WriteLine("Argumento com problema! " + e.ParamName);
                 //Console.WriteLine(e.StackTrace);
                 Console.WriteLine("Erro!" + e.Message);

@@ -58,9 +58,13 @@ namespace ByteBank
 
         public void Sacar(double valor)
         {
+            if(valor < 0)
+            {
+                throw new ArgumentException("Valor negativo!", nameof(valor));
+            }
             if (_saldo < valor)
             {
-                throw new SaldoInsuficienteException("Saldo insuficente para  saque no valor de: " + valor); //criando uma nova exceção
+                throw new SaldoInsuficienteException(Saldo, valor); //criando uma nova exceção
             }
 
             _saldo -= valor;
@@ -73,16 +77,16 @@ namespace ByteBank
         }
 
 
-        public bool Transferir(double valor, ContaCorrente contaDestino)
+        public void Transferir(double valor, ContaCorrente contaDestino)
         {
-            if (_saldo < valor)
+            if (valor < 0)
             {
-                return false;
+                throw new ArgumentException("Valor invalido para a tranferencia!", nameof(valor));
             }
 
-            _saldo -= valor;
+
+            Sacar(valor);
             contaDestino.Depositar(valor);
-            return true;
         }
     }
 }
