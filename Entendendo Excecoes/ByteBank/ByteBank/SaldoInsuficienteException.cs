@@ -15,7 +15,7 @@ namespace ByteBank
 
         }
         // o this esta chamando o construtor que esta logo a baixo, que esta passando a mensagem
-        public SaldoInsuficienteException(double saldo, double valorSaque) : this ("Tentativa de saque do valor de " + valorSaque + "em uma conta com saldo insuficiente.")
+        public SaldoInsuficienteException(double saldo, double valorSaque) : this ("Tentativa de saque do valor de " + valorSaque + " em uma conta com saldo insuficiente.")
         {
             Saldo = saldo;
             ValorSaque = valorSaque;

@@ -13,34 +13,19 @@ namespace ByteBank
             try
             {
                 ContaCorrente conta = new ContaCorrente(98, 74640);
-                conta.Depositar(50);
-                Console.WriteLine(conta.Saldo);
-            
-
 
                 ContaCorrente conta2 = new ContaCorrente(78, 986);
-                conta2.Transferir(-10, conta2);
-            }
-            catch (ArgumentException e)
+
+                conta.Transferir(1000, conta2);
+
+            } catch (Exception e)
             {
-
-                /*if (e.ParamName == "agencia")
-                {
-                    Console.WriteLine("blablabla");
-                }*/
-
-                Console.WriteLine("Argumento com problema! " + e.ParamName);
-                //Console.WriteLine(e.StackTrace);
-                Console.WriteLine("Erro!" + e.Message);
+                Console.WriteLine(e.Message);
+                Console.WriteLine(e.StackTrace);
+                Console.WriteLine("\n\n\n\nInformações da INNER EXCEPTION (exceção interna):");
+                Console.WriteLine("\n\n" + e.InnerException.Message);
+                Console.WriteLine("\n" + e.InnerException.StackTrace);
             }
-            catch (SaldoInsuficienteException e)
-            {
-                Console.WriteLine("Exceção do tipo SaldoInsuficienteException\n" + e.Message);
-            }
-
-
-
-            // Metodo();
 
         }
 
