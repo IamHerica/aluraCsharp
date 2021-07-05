@@ -16,15 +16,20 @@ namespace ByteBank
 
                 ContaCorrente conta2 = new ContaCorrente(78, 986);
 
-                conta.Transferir(1000, conta2);
+                //conta.Transferir(1000, conta2);
+                conta.Sacar(80000);
 
-            } catch (Exception e)
+            } catch (OperacaoFinanceiraException e) //tanto transferencia como saque
             {
                 Console.WriteLine(e.Message);
                 Console.WriteLine(e.StackTrace);
-                Console.WriteLine("\n\n\n\nInformações da INNER EXCEPTION (exceção interna):");
-                Console.WriteLine("\n\n" + e.InnerException.Message);
-                Console.WriteLine("\n" + e.InnerException.StackTrace);
+
+
+
+               //acessando para verificar o que acontece no sistema
+               // Console.WriteLine("\n\n\n\nInformações da INNER EXCEPTION (exceção interna):");
+               // Console.WriteLine("\n\n" + e.InnerException.Message);
+               // Console.WriteLine("\n" + e.InnerException.StackTrace);
             }
 
         }
